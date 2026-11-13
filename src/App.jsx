@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown, ArrowUp, ArrowUpRight, Boxes, Cable, ChartNoAxesCombined,
-  ChevronRight, CircleDot, Facebook, Mail, Menu, Phone, X,
+  ChevronRight, CircleDot, Facebook, Mail, Menu, Phone, X, MessageSquare,
 } from 'lucide-react';
-import ThemeToggle from './components/ThemeToggle.jsx';
 import Projects from './sections/Projects.jsx';
 import { brand, navigation } from './data/portfolio.js';
-import { usePortfolioScroll, useTheme } from './hooks/usePortfolioUI.js';
+import { usePortfolioScroll } from './hooks/usePortfolioUI.js';
 
-const logo = import.meta.env.BASE_URL + 'brand/stratify-logo.jpg';
+const logo = import.meta.env.BASE_URL + 'brand/stratify-logo.webp';
 const services = [
   {
     icon: Boxes, color: 'teal', title: 'Custom business systems',
@@ -29,6 +28,18 @@ const steps = [
   { title: 'Launch and hand over', text: 'Check the day-to-day scenarios, prepare the rollout, and walk your team through the system.' },
 ];
 
+
+const guideTopics = [
+  { label: 'Production projects', match: /project|demo|portfolio|work|product|pos|getfoodie|haringtari|academy|al.palms/i,
+    answer: 'Explore five interactive software demos: StratifyPOS, Her Opportunity Portal, Al-PALMS, Getfoodie, and HariNgTari.', href: '#projects', action: 'Explore projects' },
+  { label: 'Technical expertise', match: /tech|stack|expert|integrat|automation|system|capabilit|service|build|application|software/i,
+    answer: 'We focus on custom business applications, integrations and workflow automation, and practical dashboards and reporting.', href: '#services', action: 'Our services' },
+  { label: 'How we build', match: /how|approach|process|deliver|work|timeline|implement|launch/i,
+    answer: 'Our process is simple: map the workflow, build and test with your team, then launch and hand over the finished system.', href: '#approach', action: 'See our approach' },
+  { label: 'Start a project', match: /hire|contact|email|message|pricing|quote|cost|availability|inquir/i,
+    answer: 'Tell us about your workflow, the people who use it, and what you want to improve. You can reach Stratify Solutions directly through the contact section.', href: '#contact', action: 'Contact us' },
+];
+
 function Brand() {
   return (
     <a className="brand-lockup" href="#home" aria-label="Stratify Solutions home">
@@ -41,9 +52,10 @@ function Brand() {
 function Navigation({ activeSection, onNavigate, label }) {
   return (
     <nav className="sidebar-nav" aria-label={label}>
+      <span className="sidebar-caption">TOPICS</span>
       {navigation.map(({ id, label: name, icon: Icon }) => (
         <a key={id} href={'#' + id} aria-current={id === activeSection ? 'location' : undefined} onClick={onNavigate}>
-          <Icon size={17} aria-hidden="true" />
+          <Icon size={15} aria-hidden="true" />
           {name}
           <ChevronRight className="nav-indicator" size={15} aria-hidden="true" />
         </a>
@@ -53,7 +65,6 @@ function Navigation({ activeSection, onNavigate, label }) {
 }
 
 export default function App() {
-  const { theme, toggleTheme } = useTheme();
   const activeSection = usePortfolioScroll();
   const activeItem = navigation.find(({ id }) => id === activeSection) ?? navigation[0];
   const menu = useRef(null);
@@ -67,6 +78,21 @@ export default function App() {
   }, []);
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [guideQuery, setGuideQuery] = useState('');
+  const [guideAnswer, setGuideAnswer] = useState(null);
+
+  function showGuide(text) {
+    const topic = guideTopics.find((entry) => entry.label === text)
+      ?? guideTopics.find((entry) => entry.match.test(text))
+      ?? { answer: 'Browse the selected projects, services, process, or contact details using the links below.', href: '#projects', action: 'Explore projects' };
+    setGuideQuery('');
+    setGuideAnswer({ question: text, ...topic });
+  }
+
+  function submitGuide(event) {
+    event.preventDefault();
+    if (guideQuery.trim()) showGuide(guideQuery.trim());
+  }
 
   function closeMenu(restoreFocus = true) {
     menu.current?.close();
@@ -82,7 +108,7 @@ export default function App() {
         <Brand />
         <Navigation activeSection={activeSection} label="Main navigation" />
         <div className="sidebar-bottom">
-          <a href="#contact" className="button button-quiet">Start a project <ArrowUpRight size={16} /></a>
+          <a href="#contact" className="button button-quiet">+ &nbsp; New inquiry <ArrowUpRight size={14} /></a>
           <small>© {new Date().getFullYear()} Stratify Solutions</small>
         </div>
       </aside>
@@ -90,7 +116,6 @@ export default function App() {
       <header className="mobile-header">
         <Brand />
         <div className="header-actions">
-          <ThemeToggle theme={theme} onToggle={toggleTheme} compact />
           <button ref={menuButton} type="button" className="icon-button" aria-label="Open menu"
             aria-controls="mobile-navigation" aria-expanded={menuOpen}
             onClick={() => { menu.current?.showModal(); setMenuOpen(true); }}>
@@ -118,32 +143,46 @@ export default function App() {
         <div className="content-wrap">
           <div className="topbar">
             <p>PORTFOLIO <span>/</span> <strong>{activeItem.label}</strong></p>
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+            <a className="button button-primary topbar-contact" href="#contact">Email us <ArrowUpRight size={14} /></a>
           </div>
+
 
           <section className="hero-section" id="home" aria-labelledby="hero-title">
             <div className="hero-grid">
               <div className="hero-copy" data-reveal>
-                <p className="eyebrow"><CircleDot size={14} aria-hidden="true" /> Custom business software</p>
+                <div className="hero-symbol"><img src={logo} alt="Stratify Solutions logo" width="144" height="144" fetchPriority="high" /></div>
+                <p className="eyebrow hero-eyebrow"><CircleDot size={12} aria-hidden="true" /> Business software, built around you</p>
                 <h1 id="hero-title" tabIndex={-1}>Better systems.<br /><em>Smoother work.</em></h1>
                 <p className="hero-description">Stratify Solutions builds custom software that connects your tools, simplifies everyday workflows, and gives your team a clearer view of operations.</p>
-                <div className="hero-actions">
-                  <a className="button button-primary" href="#projects">Explore live demos <ArrowDown size={17} /></a>
-                  <a className="button button-quiet" href="#contact">Start a project <ArrowUpRight size={17} /></a>
+                <div className="hero-stats" aria-label="What we offer">
+                  <div><strong>Custom applications</strong><span>Designed for your workflow</span></div>
+                  <div><strong>Automation</strong><span>Fewer repetitive tasks</span></div>
+                  <div><strong>Integrations</strong><span>Connected business tools</span></div>
                 </div>
-              </div>
-
-              <div className="hero-art" data-reveal>
-                <div className="art-orbit" aria-hidden="true" />
-                <img src={logo} alt="Stratify logo with coral, gold, and teal circuit layers" width="1024" height="1024" fetchPriority="high" />
+                <div className="hero-actions">
+                  <a className="button button-primary" href="#projects">Explore live demos <ArrowDown size={14} /></a>
+                  <a className="button button-quiet" href="#services">Our services <ArrowUpRight size={14} /></a>
+                </div>
               </div>
             </div>
 
-            <ul className="focus-ribbon" aria-label="Stratify services">
-              <li><span className="tone teal" /> Custom applications</li>
-              <li><span className="tone coral" /> Workflow automation</li>
-              <li><span className="tone gold" /> Systems integration</li>
-            </ul>
+            <div className="guide-panel" data-reveal>
+              <div className="guide-shortcuts" aria-label="Quick topics">
+                {guideTopics.map((topic) => <button type="button" key={topic.label} onClick={() => showGuide(topic.label)}>{topic.label}</button>)}
+              </div>
+              {guideAnswer && <div className="guide-answer" role="status">
+                <div><MessageSquare size={16} aria-hidden="true" /><strong>{guideAnswer.question}</strong></div>
+                <p>{guideAnswer.answer}</p>
+                <a href={guideAnswer.href}>{guideAnswer.action} <ArrowUpRight size={13} /></a>
+              </div>}
+              <form className="guide-form" onSubmit={submitGuide} role="search" aria-label="Explore Stratify content">
+                <MessageSquare size={17} aria-hidden="true" />
+                <input type="search" value={guideQuery} onChange={(event) => setGuideQuery(event.target.value)}
+                  placeholder="Ask about our work, services, or how we build..." aria-label="Ask a question about Stratify Solutions" />
+                <button type="submit" aria-label="Find answer" disabled={!guideQuery.trim()}><ArrowUp size={16} /></button>
+              </form>
+              <p className="guide-note">A quick guide to this website's content · Select a topic or type a question.</p>
+            </div>
           </section>
 
           <Projects />
