@@ -398,3 +398,15 @@ body {
   .project-modal-details { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { .hero-section, .guide-panel { scroll-behavior: auto; } }
+
+/* Case-study shortcuts complete the compact reference-style sidebar. */
+.sidebar-new { display: flex; justify-content: space-between; align-items: center; min-height: 34px; margin: 18px 1px 4px; padding: 6px 10px; border: 1px solid #161616; background: #fff; color: #111; font-size: 11px; font-weight: 600; }
+.sidebar-new:hover { background: #f6f6f6; }
+.sidebar-case-studies { display: grid; gap: 1px; margin-top: 13px; }
+.sidebar-case-studies .sidebar-caption { margin-bottom: 5px; }
+.sidebar-case-studies a { display: flex; align-items: center; gap: 10px; min-height: 32px; padding: 5px 10px; font-size: 11px; color: #414141; }
+.sidebar-case-studies a:hover { background: #f6f6f6; color: #111; }
+.sidebar-case-studies a svg { flex: 0 0 13px; }
+.sidebar-case-studies a span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.project-card { scroll-margin-top: 22px; }
+@media (max-width: 1023px) { .sidebar-case-studies, .sidebar-new { display: none; } }
