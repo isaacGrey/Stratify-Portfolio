@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown, ArrowUp, ArrowUpRight, Boxes, Cable, ChartNoAxesCombined,
-  ChevronRight, CircleDot, Facebook, Mail, Menu, Phone, X, MessageSquare,
+  ChevronRight, CircleDot, Facebook, Mail, Menu, Phone, X, MessageSquare, FileText,
 } from 'lucide-react';
 import Projects from './sections/Projects.jsx';
-import { brand, navigation } from './data/portfolio.js';
+import { brand, navigation, projects } from './data/portfolio.js';
 import { usePortfolioScroll } from './hooks/usePortfolioUI.js';
 
 const logo = import.meta.env.BASE_URL + 'brand/stratify-logo.webp';
@@ -30,7 +30,7 @@ const steps = [
 
 
 const guideTopics = [
-  { label: 'Production projects', match: /project|demo|portfolio|work|product|pos|getfoodie|haringtari|academy|al.palms/i,
+  { label: 'Production projects', match: /project|demo|portfolio|selected work|product|pos|getfoodie|haringtari|academy|al.palms/i,
     answer: 'Explore five interactive software demos: StratifyPOS, Her Opportunity Portal, Al-PALMS, Getfoodie, and HariNgTari.', href: '#projects', action: 'Explore projects' },
   { label: 'Technical expertise', match: /tech|stack|expert|integrat|automation|system|capabilit|service|build|application|software/i,
     answer: 'We focus on custom business applications, integrations and workflow automation, and practical dashboards and reporting.', href: '#services', action: 'Our services' },
@@ -106,9 +106,15 @@ export default function App() {
 
       <aside className="sidebar-shell">
         <Brand />
+        <a href="#contact" className="sidebar-new">+ &nbsp; New inquiry <ArrowUpRight size={14} /></a>
         <Navigation activeSection={activeSection} label="Main navigation" />
+        <div className="sidebar-case-studies">
+          <span className="sidebar-caption">CASE STUDIES</span>
+          {projects.map((project) => <a href={'#project-' + project.number} key={project.number}>
+            <FileText size={13} aria-hidden="true" /><span>{project.title}</span>
+          </a>)}
+        </div>
         <div className="sidebar-bottom">
-          <a href="#contact" className="button button-quiet">+ &nbsp; New inquiry <ArrowUpRight size={14} /></a>
           <small>© {new Date().getFullYear()} Stratify Solutions</small>
         </div>
       </aside>
