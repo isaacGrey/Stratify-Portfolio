@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown, ArrowUp, ArrowUpRight, Boxes, Cable, ChartNoAxesCombined,
-  ChevronRight, CircleDot, Facebook, Mail, Menu, Phone, X, MessageSquare, FileText,
+  ChevronRight, CircleDot, Facebook, Mail, Menu, Phone, X, FileText,
 } from 'lucide-react';
 import Projects from './sections/Projects.jsx';
+import Team from './sections/Team.jsx';
 import { brand, navigation, projects } from './data/portfolio.js';
 import { usePortfolioScroll } from './hooks/usePortfolioUI.js';
 
@@ -29,16 +30,6 @@ const steps = [
 ];
 
 
-const guideTopics = [
-  { label: 'Production projects', match: /project|demo|portfolio|selected work|product|pos|getfoodie|haringtari|academy|al.palms/i,
-    answer: 'Explore five interactive software demos: StratifyPOS, Her Opportunity Portal, Al-PALMS, Getfoodie, and HariNgTari.', href: '#projects', action: 'Explore projects' },
-  { label: 'Technical expertise', match: /tech|stack|expert|integrat|automation|system|capabilit|service|build|application|software/i,
-    answer: 'We focus on custom business applications, integrations and workflow automation, and practical dashboards and reporting.', href: '#services', action: 'Our services' },
-  { label: 'How we build', match: /how|approach|process|deliver|work|timeline|implement|launch/i,
-    answer: 'Our process is simple: map the workflow, build and test with your team, then launch and hand over the finished system.', href: '#approach', action: 'See our approach' },
-  { label: 'Start a project', match: /hire|contact|email|message|pricing|quote|cost|availability|inquir/i,
-    answer: 'Tell us about your workflow, the people who use it, and what you want to improve. You can reach Stratify Solutions directly through the contact section.', href: '#contact', action: 'Contact us' },
-];
 
 function Brand() {
   return (
@@ -78,22 +69,6 @@ export default function App() {
   }, []);
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [guideQuery, setGuideQuery] = useState('');
-  const [guideAnswer, setGuideAnswer] = useState(null);
-
-  function showGuide(text) {
-    const topic = guideTopics.find((entry) => entry.label === text)
-      ?? guideTopics.find((entry) => entry.match.test(text))
-      ?? { answer: 'Browse the selected projects, services, process, or contact details using the links below.', href: '#projects', action: 'Explore projects' };
-    setGuideQuery('');
-    setGuideAnswer({ question: text, ...topic });
-  }
-
-  function submitGuide(event) {
-    event.preventDefault();
-    if (guideQuery.trim()) showGuide(guideQuery.trim());
-  }
-
   function closeMenu(restoreFocus = true) {
     menu.current?.close();
     if (restoreFocus) menuButton.current?.focus();
@@ -172,26 +147,11 @@ export default function App() {
               </div>
             </div>
 
-            <div className="guide-panel" data-reveal>
-              <div className="guide-shortcuts" aria-label="Quick topics">
-                {guideTopics.map((topic) => <button type="button" key={topic.label} onClick={() => showGuide(topic.label)}>{topic.label}</button>)}
-              </div>
-              {guideAnswer && <div className="guide-answer" role="status">
-                <div><MessageSquare size={16} aria-hidden="true" /><strong>{guideAnswer.question}</strong></div>
-                <p>{guideAnswer.answer}</p>
-                <a href={guideAnswer.href}>{guideAnswer.action} <ArrowUpRight size={13} /></a>
-              </div>}
-              <form className="guide-form" onSubmit={submitGuide} role="search" aria-label="Explore Stratify content">
-                <MessageSquare size={17} aria-hidden="true" />
-                <input type="search" value={guideQuery} onChange={(event) => setGuideQuery(event.target.value)}
-                  placeholder="Ask about our work, services, or how we build..." aria-label="Ask a question about Stratify Solutions" />
-                <button type="submit" aria-label="Find answer" disabled={!guideQuery.trim()}><ArrowUp size={16} /></button>
-              </form>
-              <p className="guide-note">A quick guide to this website's content · Select a topic or type a question.</p>
-            </div>
+
           </section>
 
           <Projects />
+          <Team />
 
           <section className="content-section" id="services" aria-labelledby="services-title">
             <header className="section-heading" data-reveal>

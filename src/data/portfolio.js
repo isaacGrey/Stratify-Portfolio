@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Cable, House, Mail, Workflow } from 'lucide-react';
+import { BriefcaseBusiness, Cable, House, Mail, Users, Workflow } from 'lucide-react';
 
 export const brand = {
   email: 'reach.stratify@gmail.com',
@@ -10,6 +10,7 @@ export const brand = {
 export const navigation = [
   { id: 'home', label: 'Overview', icon: House },
   { id: 'projects', label: 'Selected work', icon: BriefcaseBusiness },
+  { id: 'team', label: 'Team', icon: Users },
   { id: 'services', label: 'Services', icon: Cable },
   { id: 'approach', label: 'Our approach', icon: Workflow },
   { id: 'contact', label: 'Contact', icon: Mail },
