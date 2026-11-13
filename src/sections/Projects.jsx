@@ -27,7 +27,7 @@ export default function Projects() {
         {projects.map((project) => {
           const Icon = projectIcons[project.icon];
           return (
-            <article className={project.featured ? 'project-card project-card--featured' : 'project-card'} key={project.number}>
+            <article id={'project-' + project.number} className={project.featured ? 'project-card project-card--featured' : 'project-card'} key={project.number}>
               <ProjectCover project={project} Icon={Icon} />
               <div className="project-card-body">
                 <div className="project-type"><Icon size={17} aria-hidden="true" />{project.type}</div>
