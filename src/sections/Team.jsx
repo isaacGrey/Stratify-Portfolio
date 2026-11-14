@@ -32,7 +32,7 @@ const members = [
     photo: base + 'team/angelo.webp',
     preview: 'Business applications, integrations, workflow improvements, and technical support.',
     description: 'I work on business applications and internal software tools, with a focus on integrating systems, improving workflows, supporting databases, and troubleshooting day-to-day technical issues. I help turn operational requirements into practical software solutions.',
-    href: null,
+    href: 'https://angelo-ramos-portfolio.vercel.app',
   },
 ];
 
