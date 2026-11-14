@@ -1,48 +1,6 @@
 import { useEffect, useState } from 'react';
 import { navigation } from '../data/portfolio.js';
 
-const THEME_KEY = 'stratify-portfolio-theme';
-const THEMES = ['dark', 'light', 'system'];
-
-function getInitialTheme() {
-  try {
-    const saved = localStorage.getItem(THEME_KEY);
-    return THEMES.includes(saved) ? saved : 'dark';
-  } catch {
-    return 'dark';
-  }
-}
-
-export function useTheme() {
-  const [theme, setTheme] = useState(getInitialTheme);
-
-  useEffect(() => {
-    const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
-
-    function applyTheme() {
-      const effectiveTheme = theme === 'system' ? (systemTheme.matches ? 'light' : 'dark') : theme;
-      document.documentElement.dataset.theme = effectiveTheme;
-      document.querySelector('meta[name="theme-color"]').content =
-        effectiveTheme === 'dark' ? '#081923' : '#faf8f0';
-    }
-
-    applyTheme();
-    systemTheme.addEventListener('change', applyTheme);
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch {
-      // The selected theme still works when storage is unavailable.
-    }
-    return () => systemTheme.removeEventListener('change', applyTheme);
-  }, [theme]);
-
-  function toggleTheme() {
-    setTheme((current) => THEMES[(THEMES.indexOf(current) + 1) % THEMES.length]);
-  }
-
-  return { theme, toggleTheme };
-}
-
 export function usePortfolioScroll() {
   const [activeSection, setActiveSection] = useState('home');
 

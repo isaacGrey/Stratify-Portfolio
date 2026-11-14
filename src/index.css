@@ -1,43 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;650;700;750&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  color-scheme: dark;
-  --bg: #081923;
-  --sidebar: #0a1f2b;
-  --surface: #0e2531;
-  --surface-hover: #14303e;
-  --text: #fffaf0;
-  --muted: #b1c2c8;
-  --line: #28424f;
-  --accent: #59d3d9;
-  --accent-ink: #08242d;
-  --accent-soft: #113b46;
-  --coral: #ff7864;
-  --gold: #ffc655;
-  --teal: #04a2ac;
-  --cream: #fffdf7;
+  color-scheme: light;
+  --bg: #ffffff;
+  --sidebar: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f7f7f7;
+  --text: #0d0d0d;
+  --muted: #5f5f5f;
+  --line: #e4e4e4;
+  --accent: #101010;
+  --accent-ink: #ffffff;
+  --accent-soft: #f4f4f4;
+  --coral: #ff6859;
+  --gold: #f6ad21;
+  --teal: #0099a9;
+  --cream: #ffffff;
+  --sidebar-width: 212px;
   --sans: Geist, 'Segoe UI', sans-serif;
   --mono: 'IBM Plex Mono', Consolas, monospace;
-  --sidebar-width: 232px;
   --scroll-progress: 0;
   font-family: var(--sans);
   font-synthesis: none;
-}
-
-:root[data-theme='light'] {
-  color-scheme: light;
-  --bg: #faf8f0;
-  --sidebar: #f2eee2;
-  --surface: #fffdf8;
-  --surface-hover: #f4efe1;
-  --text: #102d3c;
-  --muted: #48616a;
-  --line: #d6ddd5;
-  --accent: #076d77;
-  --accent-ink: #fffdf7;
-  --accent-soft: #def1ed;
-  --coral: #bc4839;
-  --gold: #8c5b00;
 }
 
 * { box-sizing: border-box; }
@@ -97,7 +81,6 @@ h1, h2, h3, p { margin: 0; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; min-height: 46px; padding: 8px 14px; border: 1px solid transparent; border-radius: 5px; font-size: 13px; font-weight: 650; transition: background .2s ease, border-color .2s ease; }
 .button-primary { background: var(--accent); color: var(--accent-ink); }
 .button-primary:hover { background: color-mix(in srgb, var(--accent) 83%, var(--cream)); }
-[data-theme='light'] .button-primary:hover { background: color-mix(in srgb, var(--accent) 85%, #000); }
 .button-quiet { border-color: var(--line); background: var(--surface); }
 .button-quiet:hover { border-color: var(--accent); }
 .hero-art { display: grid; place-items: center; position: relative; min-width: 0; aspect-ratio: 1.07; padding: 10%; overflow: hidden; isolation: isolate; border: 1px solid var(--line); border-radius: 8px; background: radial-gradient(ellipse at 90% 95%, #035964 0, transparent 62%), linear-gradient(144deg, #0c3140, #0a1e2b 57%); }
@@ -230,27 +213,7 @@ h1, h2, h3, p { margin: 0; }
   .js-reveal-enabled [data-reveal] { opacity: 1; transform: none; }
 }
 
-/* Compact, light-only Stratify design system inspired by the supplied reference. */
-:root, :root[data-theme='light'] {
-  color-scheme: light;
-  --bg: #ffffff;
-  --sidebar: #ffffff;
-  --surface: #ffffff;
-  --surface-hover: #f7f7f7;
-  --text: #0d0d0d;
-  --muted: #5f5f5f;
-  --line: #e4e4e4;
-  --accent: #101010;
-  --accent-ink: #ffffff;
-  --accent-soft: #f4f4f4;
-  --coral: #ff6859;
-  --gold: #f6ad21;
-  --teal: #0099a9;
-  --cream: #ffffff;
-  --sidebar-width: 212px;
-  --sans: Geist, 'Segoe UI', sans-serif;
-  --mono: 'IBM Plex Mono', Consolas, monospace;
-}
+/* Compact Stratify design refinements. */
 html { scroll-padding-top: 24px; }
 body {
   font-size: 13px;

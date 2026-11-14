@@ -21,7 +21,7 @@ export default function Projects() {
       <header className="section-heading" data-reveal>
         <p className="eyebrow">Portfolio</p>
         <h2 id="projects-title" tabIndex={-1}>Selected work.</h2>
-        <p>Try the live demos to see how each system handles everyday tasks.</p>
+        <p>Explore interactive demos and launched platforms in our selected work.</p>
       </header>
       <div className="project-grid">
         {projects.map((project) => {

@@ -141,7 +141,7 @@ export default function App() {
                   <div><strong>Integrations</strong><span>Connected business tools</span></div>
                 </div>
                 <div className="hero-actions">
-                  <a className="button button-primary" href="#projects">Explore live demos <ArrowDown size={14} /></a>
+                  <a className="button button-primary" href="#projects">Explore projects <ArrowDown size={14} /></a>
                   <a className="button button-quiet" href="#services">Our services <ArrowUpRight size={14} /></a>
                 </div>
               </div>
