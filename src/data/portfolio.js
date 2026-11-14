@@ -7,10 +7,13 @@ export const brand = {
   facebook: 'https://www.facebook.com/share/1Q218BfuWr/?mibextid=wwXIfr',
 };
 
+// Temporarily hide the team section from the public site without removing its content.
+export const showTeamSection = false;
+
 export const navigation = [
   { id: 'home', label: 'Overview', icon: House },
   { id: 'projects', label: 'Selected work', icon: BriefcaseBusiness },
-  { id: 'team', label: 'Team', icon: Users },
+  ...(showTeamSection ? [{ id: 'team', label: 'Team', icon: Users }] : []),
   { id: 'services', label: 'Services', icon: Cable },
   { id: 'approach', label: 'Our approach', icon: Workflow },
   { id: 'contact', label: 'Contact', icon: Mail },
