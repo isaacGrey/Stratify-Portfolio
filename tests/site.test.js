@@ -46,3 +46,11 @@ test('portfolio is light-only with no theme-switching wiring', () => {
   assert.doesNotMatch(read('src/hooks/usePortfolioUI.js'), /useTheme|THEME_KEY/);
   assert.doesNotMatch(read('src/App.jsx'), /ThemeToggle|useTheme/);
 });
+
+test('team stays available in the codebase but is hidden from public navigation and the page', () => {
+  const app = read('src/App.jsx');
+  assert.match(catalog, /export const showTeamSection = false;/);
+  assert.match(catalog, /\.\.\.\(showTeamSection \? \[\{ id: 'team'/);
+  assert.match(app, /\{showTeamSection && <Team \/>\}/);
+  assert.match(team, /export default function Team\(\)/);
+});
