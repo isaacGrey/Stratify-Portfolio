@@ -172,6 +172,48 @@ export const projects = [
     ],
     href: "https://haringtari-demo.vercel.app/",
     action: "Live demo"
+  },
+  {
+    number: "6",
+    title: "JuanCast",
+    type: "FAN-VOTING PLATFORM",
+    description: "A live Philippine fan-voting platform where supporters vote for their favorite idols, musicians, and entertainment nominees through recurring polls and awards.",
+    challenge: "Give Filipino fan communities an accessible way to support artists and participate in voting campaigns.",
+    delivered: "JuanCast is available as a website and Android app, featuring active polls, entertainment categories, fan projects, and promotional campaigns.",
+    icon: "users",
+    featured: false,
+    stack: [
+      "Fan Voting",
+      "Polls & Awards",
+      "Web",
+      "Android"
+    ],
+    cover: "/projects/juancast/cover.webp",
+    screenshots: [
+      {
+        src: "/projects/juancast/brand.webp",
+        alt: "JuanCast branding and Every Juan's Choice tagline",
+        caption: "JuanCast · Every Juan's Choice"
+      },
+      {
+        src: "/projects/juancast/app.webp",
+        alt: "JuanCast mobile experience and voting-category preview",
+        caption: "Mobile app and voting categories"
+      },
+      {
+        src: "/projects/juancast/voting.webp",
+        alt: "JuanCast Vote For Your Idols campaign artwork",
+        caption: "Vote for your idols"
+      },
+      {
+        src: "/projects/juancast/billboards.webp",
+        alt: "JuanCast promotional artwork featuring outdoor digital screens",
+        caption: "Campaign promotion and digital billboards"
+      }
+    ],
+    href: "https://juancast.ph/",
+    playStoreHref: "https://play.google.com/store/apps/details?id=com.JuanCast.myapplication",
+    action: "Website"
   }
 ].map((project) => ({
   ...project,

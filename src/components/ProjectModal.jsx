@@ -133,6 +133,8 @@ export default function ProjectModal({ project, Icon, onClose }) {
                 {project.action || 'View project'} <ArrowUpRight size={15} /></a> : (
                 <span className="project-modal-private">{project.note || 'Private project'}</span>
               )}
+              {project.playStoreHref && <a className="project-modal-external" href={project.playStoreHref} target="_blank" rel="noreferrer">
+                Google Play <ArrowUpRight size={15} /></a>}
             </div>
           </div>
         </div>

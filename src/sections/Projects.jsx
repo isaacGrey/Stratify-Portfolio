@@ -38,9 +38,13 @@ export default function Projects() {
                   <button className="details-button" type="button" onClick={() => setSelectedProject(project)}
                     aria-label={'View details for ' + project.title}>View details</button>
                   <a href={project.href} target="_blank" rel="noreferrer" className="project-link"
-                    aria-label={'Live demo for ' + project.title + ' (opens in a new tab)'}>
-                    Live demo <ArrowUpRight size={16} />
+                    aria-label={(project.action || 'Live demo') + ' for ' + project.title + ' (opens in a new tab)'}>
+                    {project.action || 'Live demo'} <ArrowUpRight size={16} />
                   </a>
+                  {project.playStoreHref && <a href={project.playStoreHref} target="_blank" rel="noreferrer" className="project-link"
+                    aria-label={'Google Play listing for ' + project.title + ' (opens in a new tab)'}>
+                    Google Play <ArrowUpRight size={16} />
+                  </a>}
                 </div>
               </div>
             </article>
