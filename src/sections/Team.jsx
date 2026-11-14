@@ -11,6 +11,13 @@ const members = [
     href: 'https://isaacgreyole.vercel.app/',
   },
   {
+    name: 'Angelo Ramos',
+    role: 'Senior DevOps / IT Project Manager · Developer',
+    photo: base + 'team/angelo.webp',
+    preview: 'Internal tools, QuickBooks Desktop integration, and IT infrastructure management.',
+    description: "I'm Angelo A. Ramos — a Senior DevOps / IT Project Manager and developer. I help businesses build internal tools, integrate with QuickBooks Desktop, and manage the IT infrastructure they rely on.",
+    href: 'https://angelo-ramos-portfolio.vercel.app',
+  },  {
     name: 'Marwin Paul Olivar',
     role: 'Software Developer',
     photo: base + 'team/marwin.webp',
@@ -26,14 +33,7 @@ const members = [
     description: 'I’m a Software Engineer focused on Android and web development. I build mobile applications using Java, XML, Android Studio, and Firebase, with experience in authentication, real-time databases, cloud storage, ads integration, testing, deployment, and app maintenance. I also create responsive websites using HTML, CSS, and JavaScript. My work includes publishing and managing apps through Google Play Console, integrating Google AdMob and Unity Ads, and maintaining production-ready applications.',
     href: 'https://robertbasan.online',
   },
-  {
-    name: 'Angelo Ramos',
-    role: 'Senior DevOps / IT Project Manager · Developer',
-    photo: base + 'team/angelo.webp',
-    preview: 'Internal tools, QuickBooks Desktop integration, and IT infrastructure management.',
-    description: "I'm Angelo A. Ramos — a Senior DevOps / IT Project Manager and developer. I help businesses build internal tools, integrate with QuickBooks Desktop, and manage the IT infrastructure they rely on.",
-    href: 'https://angelo-ramos-portfolio.vercel.app',
-  },
+
 ];
 
 export default function Team() {
