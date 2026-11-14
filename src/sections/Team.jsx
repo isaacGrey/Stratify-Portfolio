@@ -17,7 +17,8 @@ const members = [
     preview: 'Internal tools, QuickBooks Desktop integration, and IT infrastructure management.',
     description: "I'm Angelo A. Ramos — a Senior DevOps / IT Project Manager and developer. I help businesses build internal tools, integrate with QuickBooks Desktop, and manage the IT infrastructure they rely on.",
     href: 'https://angelo-ramos-portfolio.vercel.app',
-  },  {
+  },
+  {
     name: 'Marwin Paul Olivar',
     role: 'Software Developer',
     photo: base + 'team/marwin.webp',
