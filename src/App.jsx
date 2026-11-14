@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import Projects from './sections/Projects.jsx';
 import Team from './sections/Team.jsx';
-import { brand, navigation, projects } from './data/portfolio.js';
+import { brand, navigation, projects, showTeamSection } from './data/portfolio.js';
 import { usePortfolioScroll } from './hooks/usePortfolioUI.js';
 
 const logo = import.meta.env.BASE_URL + 'brand/stratify-logo.webp';
@@ -151,7 +151,7 @@ export default function App() {
           </section>
 
           <Projects />
-          <Team />
+          {showTeamSection && <Team />}
 
           <section className="content-section" id="services" aria-labelledby="services-title">
             <header className="section-heading" data-reveal>
