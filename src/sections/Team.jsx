@@ -4,10 +4,10 @@ const base = import.meta.env.BASE_URL;
 const members = [
   {
     name: 'Isaac Greyole S. Balingit',
-    role: 'Software Engineer · Enterprise Integrations',
+    role: 'Software Engineer • Business Systems',
     photo: base + 'team/isaac.webp',
-    preview: 'Enterprise integrations, practical implementation, and client-facing solution delivery.',
-    description: 'I am a software engineer focused on enterprise integrations, practical implementation, and client-facing solution delivery. I work with 1C:Enterprise and AccountingSuite to translate operational needs into workflows, reports, access controls, and connected systems. I collaborate with sales and implementation teams, join client presentations, and demonstrate technical solutions in terms of their business use cases.',
+    preview: 'Business systems development and deployment, enterprise integrations, and client-facing solutions.',
+    description: 'I am a software engineer who builds, customizes, and deploys business systems for real-world operations. I work with 1C:Enterprise and AccountingSuite to develop workflows, reports, access controls, and integrations, and I support these systems through deployment, troubleshooting, and ongoing improvements. I also work directly with clients and alongside sales and implementation teams to understand requirements, present technical demos, and deliver practical solutions using a hands-on, forward-deployed engineering approach.',
     href: 'https://isaacgreyole.vercel.app/',
   },
   {
@@ -28,10 +28,10 @@ const members = [
   },
   {
     name: 'Angelo Ramos',
-    role: 'Software Developer · Business Systems',
+    role: 'Senior DevOps / IT Project Manager · Developer',
     photo: base + 'team/angelo.webp',
-    preview: 'Business applications, integrations, workflow improvements, and technical support.',
-    description: 'I work on business applications and internal software tools, with a focus on integrating systems, improving workflows, supporting databases, and troubleshooting day-to-day technical issues. I help turn operational requirements into practical software solutions.',
+    preview: 'Internal tools, QuickBooks Desktop integration, and IT infrastructure management.',
+    description: "I'm Angelo A. Ramos — a Senior DevOps / IT Project Manager and developer. I help businesses build internal tools, integrate with QuickBooks Desktop, and manage the IT infrastructure they rely on.",
     href: 'https://angelo-ramos-portfolio.vercel.app',
   },
 ];
