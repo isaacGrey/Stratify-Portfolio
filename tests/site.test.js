@@ -63,3 +63,13 @@ test('AccountingSuite and AutoCount are listed as professional work without inve
   assert.match(catalog, /cover: "\/projects\/accountingsuite\/accountingsuite-cover.webp"/);
   assert.match(catalog, /cover: "\/projects\/autocount\/autocount-cover.webp"/);
 });
+
+test('AccountingSuite demo link and credentials are shown on its project details', () => {
+  const modal = read('src/components/ProjectModal.jsx');
+  const accountingSuite = catalog.split('title: "AccountingSuite"')[1].split('title: "AutoCount"')[0];
+  assert.match(accountingSuite, /href: "https:\/\/demo\.accountingsuite\.io\/demobase\/en_US\/"/);
+  assert.match(accountingSuite, /action: "Try demo"/);
+  assert.match(accountingSuite, /demoCredentials: \{ username: "demo", password: "demo" \}/);
+  assert.match(modal, /project\.demoCredentials\.username/);
+  assert.match(modal, /project\.demoCredentials\.password/);
+});
