@@ -25,6 +25,64 @@ function projectAsset(path) {
 
 export const projects = [
   {
+    number: "7",
+    title: "AccountingSuite",
+    type: "ACCOUNTING SYSTEM / CUSTOMIZATION",
+    description: "Business-specific AccountingSuite extensions spanning Philippine tax and financial reporting, approval workflows, role-based access, and custom REST/OData interfaces.",
+    challenge: "Adapt an accounting system to operational requirements, reporting needs, and local compliance workflows.",
+    delivered: "Developed reporting modules, approval flows, access restrictions, and integrations; supported deployments, troubleshooting, and client demonstrations.",
+    details: {
+      role: "Business systems development, extensions, integrations, deployment, and technical support.",
+      highlights: [
+        "Philippine tax and financial reporting customizations",
+        "Approval workflows and role-based access restrictions",
+        "REST/OData services and external system integrations",
+        "Client demonstrations, troubleshooting, and deployment support"
+      ]
+    },
+    icon: "workflow",
+    featured: false,
+    stack: ["1C:Enterprise", "AccountingSuite", "REST / OData", "BIR Reporting", "Workflow Automation"],
+    cover: "/projects/accountingsuite/accountingsuite-cover.webp",
+    coverFit: "contain",
+    screenshots: [
+      {
+        src: "/projects/accountingsuite/accountingsuite-cover.webp",
+        alt: "AccountingSuite application logo",
+        caption: "AccountingSuite"
+      }
+    ],
+    note: "Professional work · Proprietary implementation"
+  },
+  {
+    number: "8",
+    title: "AutoCount",
+    type: "BUSINESS SOFTWARE / CUSTOMER SUPPORT",
+    description: "Hands-on customer support and business-specific AutoCount customizations, including extensions tailored to client workflows and operational requirements.",
+    challenge: "Help customers address day-to-day issues and adapt business software to their processes.",
+    delivered: "Provided direct technical support, investigated customer issues, and implemented custom extensions to support business needs.",
+    details: {
+      role: "Customer-facing support, troubleshooting, and extension customization.",
+      highlights: [
+        "Hands-on customer support and issue resolution",
+        "Business-specific extensions and customizations",
+        "Troubleshooting and workflow adjustments"
+      ]
+    },
+    icon: "workflow",
+    featured: false,
+    stack: ["AutoCount", "Customer Support", "Extensions", "Business Workflows"],
+    cover: "/projects/autocount/autocount-cover.webp",
+    screenshots: [
+      {
+        src: "/projects/autocount/autocount-cover.webp",
+        alt: "AutoCount desktop application showing business transaction modules",
+        caption: "AutoCount business software interface"
+      }
+    ],
+    note: "Professional work · Customer implementation"
+  },
+  {
     number: "1",
     title: "StratifyPOS",
     type: "POINT OF SALE",
