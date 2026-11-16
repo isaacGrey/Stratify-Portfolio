@@ -88,6 +88,14 @@ export default function ProjectModal({ project, Icon, onClose }) {
             <h2 id={`project-modal-title-${project.number}`}>{project.title}</h2>
             <p className="project-modal-lead" id={`project-modal-description-${project.number}`}>{project.description}</p>
 
+            {project.demoCredentials && (
+              <div className="project-modal-detail" aria-label="Demo login credentials">
+                <h3>DEMO CREDENTIALS</h3>
+                <p>Username: <strong>{project.demoCredentials.username}</strong></p>
+                <p>Password: <strong>{project.demoCredentials.password}</strong></p>
+              </div>
+            )}
+
             <div className="project-modal-details">
               {project.challenge && <div className="project-modal-detail"><h3>THE PROBLEM</h3><p>{project.challenge}</p></div>}
               {project.delivered && <div className="project-modal-detail"><h3>THE SOLUTION</h3><p>{project.delivered}</p></div>}
