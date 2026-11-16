@@ -52,7 +52,10 @@ export const projects = [
         caption: "AccountingSuite"
       }
     ],
-    note: "Professional work · Proprietary implementation"
+    note: "Professional work · Proprietary implementation",
+    href: "https://demo.accountingsuite.io/demobase/en_US/",
+    action: "Try demo",
+    demoCredentials: { username: "demo", password: "demo" }
   },
   {
     number: "8",
